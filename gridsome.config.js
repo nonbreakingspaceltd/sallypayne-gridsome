@@ -1,13 +1,54 @@
-// This is where project configuration and plugin options are located.
-// Learn more: https://gridsome.org/docs/config
-
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
-
 require('dotenv').config();
+const path = require('path');
+
+const addStyleResource = rule => {
+  rule
+    .use('style-resource')
+    .loader('style-resources-loader')
+    .options({
+      patterns: [
+        path.resolve(__dirname, './src/assets/styles/settings/index.css'),
+        path.resolve(__dirname, './src/assets/styles/tools/index.css')
+      ]
+    });
+};
+
+const postcssPlugins = [
+  require('postcss-import'),
+  require('postcss-nested'),
+  require('postcss-calc'),
+  require('postcss-pxtorem')({
+    propWhiteList: []
+  }),
+  require('postcss-preset-env')({
+    autoprefixer: {
+      grid: true
+    },
+    preserve: false,
+    stage: 1,
+    features: {
+      'focus-within-pseudo-class': false
+    }
+  }),
+  require('postcss-focus-within'),
+  require('postcss-remove-root'),
+  require('postcss-reporter')({
+    clearReportedMessages: true
+  }),
+  require('cssnano')({
+    preset: [
+      'default',
+      {
+        discardComments: {
+          removeAll: true
+        }
+      }
+    ]
+  })
+];
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Sally Payne',
   plugins: [
     {
       use: '@gridsome/source-wordpress',
@@ -21,8 +62,38 @@ module.exports = {
     }
   ],
   templates: {
-    WordPressPost: '/journal/:slug',
+    WordPressPost: '/journal/:slug'
     // WordPressProduct: '/shop/:slug',
     // WordPressWork: '/work/:slug'
+  },
+  chainWebpack(config) {
+    const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
+    types.forEach(type => {
+      addStyleResource(config.module.rule('css').oneOf(type));
+    });
+    config.module
+      .rule('postcss-loader')
+      .test(/\.css$/)
+      .use(postcssPlugins)
+      .loader('postcss-loader');
+    config.module
+      .rule('css')
+      .oneOf('normal')
+      .use('postcss-loader')
+      .tap(options => {
+        options.plugins.unshift(...postcssPlugins);
+        return options;
+      });
+    config.module
+      .rule('vue')
+      .use('vue-svg-inline-loader')
+      .loader('vue-svg-inline-loader')
+      .options({
+        removeAttributes: ['width', 'height', 'alt', 'src'],
+        addAttributes: {
+          focusable: false,
+          tabindex: false
+        }
+      });
   }
 };

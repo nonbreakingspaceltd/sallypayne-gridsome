@@ -1,0 +1,70 @@
+.sp-c-card {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  background-color: #FFFFFF;
+
+  @media (--mq-m) {
+    margin-bottom: 32px;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+  }
+
+  &__media {
+    padding: 0;
+    margin: 0;
+
+    &__inner {
+      position: relative;
+      background: #f5f5f5;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &--journal &__media,
+  &--product &__media {
+    padding: 16px 16px 0;
+  }
+
+  &--work &__media {
+    padding: 16px;
+  }
+
+  &__content {
+    padding: 16px;
+  }
+
+  &--journal a:hover &__title,
+  &--journal a:focus &__title {
+      color: var(--color-brand--d);
+  }
+
+  &--product a:hover &__title,
+  &--product a:focus &__title {
+      color: var(--color-brand--c);
+  }
+
+  &__body {
+    margin: 8px 0 0;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+}

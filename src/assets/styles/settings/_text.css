@@ -1,0 +1,18 @@
+/* Text Variables */
+
+:root {
+    --font-sans-serif: sans-serif;
+    --font-serif: serif;
+    --font-monospace: monospace;
+    --font-size-base: 16px;
+    --line-height-base: 1.35;
+    --font-size-h1: 48px;
+    --font-size-h2: 36px;
+    --font-size-h3: 30px;
+    --font-size-h4: 24px;
+    --font-size-h5: 18px;
+    --font-size-h6: 14px;
+
+    --font-family-body: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+    --font-family-heading: 'Amatic SC', SunshineDaisiesSansCondensed, sans-serif
+}

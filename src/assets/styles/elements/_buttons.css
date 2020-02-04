@@ -1,0 +1,46 @@
+/* Button */
+
+.sp-c-btn {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  appearance: none;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 24px;
+
+  &.disabled,
+  &[disabled] {
+      cursor: default;
+  }
+
+  &__label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &--block {
+    width: 100%;
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &--etsy {
+    background-color: #EF5000;
+    color: #fff;
+  }
+
+  &--etsy &__icon {
+    fill: #fff;
+    width: 50px;
+    vertical-align: -10px;
+  }
+}
