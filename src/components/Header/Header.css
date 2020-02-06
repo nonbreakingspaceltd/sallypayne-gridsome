@@ -58,6 +58,10 @@
       right: calc(var(--baseline) * 8);
     }
 
+    @media (--mq-l) {
+      display: none !important;
+    }
+
     &__svg {
       width: 100%;
       fill: var(--color-text);
@@ -96,7 +100,7 @@
       top: auto;
       height: auto;
       background-color: transparent;
-      display: block;
+      display: block !important;
     }
 
     &__item {

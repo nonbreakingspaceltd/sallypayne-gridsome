@@ -2,7 +2,7 @@ export default {
   data() {
     return {
       menuIn: false,
-      windowWidth: 1024,
+      windowWidth: 0,
       tick: null,
       resizeTimeout: null
     };

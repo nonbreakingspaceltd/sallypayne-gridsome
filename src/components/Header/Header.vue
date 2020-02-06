@@ -77,8 +77,9 @@
       <nav
         id="nav"
         class="sp-c-header__nav"
+        :class="{ 'is-active' : menuIn }"
         role="navigation"
-        v-if="!smallscreen || menuIn"
+        v-show="!smallscreen || menuIn"
       >
         <div class="sp-c-header__nav__inner">
           <g-link

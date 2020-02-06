@@ -10,4 +10,27 @@ export default function(Vue, { router, head, isClient }) {
   Vue.use(VueMasonry);
   Vue.use(VueMoment);
   Vue.use(VScrollLock);
+
+  head.htmlAttrs = {
+    lang: 'en',
+    dir: 'ltr',
+    class: process.isClient ? 'js' : 'no-js',
+  };
+
+  head.script.unshift({
+    innerHTML: `document.documentElement.className=document.documentElement.className.replace(/\\bno-js\\b/,'js')`
+  });
+
+  // This code will only run in IE11 because we test for d.currentScript:
+  head.script.unshift({
+    innerHTML: `
+      !function(d) {
+        if( !d.currentScript ){
+          var s = d.createElement('script');
+          s.src = 'https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find';
+          d.head.appendChild(s);
+        }
+      }(document)
+    `.replace(/\s/g, '')
+  });
 }
