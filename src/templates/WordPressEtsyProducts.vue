@@ -95,10 +95,11 @@ query WordPressEtsyProducts ($id: ID!) {
 </page-query>
 
 <script>
+  import decodeEntities from 'decode-entities';
   export default {
     metaInfo() {
       return {
-        title: this.$page.wordPressEtsyProducts.title
+        title: `${decodeEntities(this.$page.wordPressEtsyProducts.title)} - Shop`
       };
     }
   };
