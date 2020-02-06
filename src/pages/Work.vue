@@ -1,21 +1,21 @@
 <template>
   <Layout>
-    <div class="sp-l-page sp-l-page--journal">
+    <div class="sp-l-page sp-l-page--work">
       <div class="sp-l-page__inner">
         <h1 class="sp-o-pagetitle sp-u-sronly">
-          Journal
+          Work
         </h1>
         <masonry
           :cols="masonryCols"
           :gutter="32"
-          v-if="$page.allWordPressPost.edges"
+          v-if="$page.allWordPressWork.edges"
         >
-          <template v-for="{ node } in $page.allWordPressPost.edges">
-            <Card :content="node" modifier="journal" :key="node.id" />
+          <template v-for="{ node } in $page.allWordPressWork.edges">
+            <Card :content="node" modifier="work" :key="node.id" />
           </template>
         </masonry>
         <nav class="sp-c-pagination">
-          <Pager :info="$page.allWordPressPost.pageInfo" />
+          <Pager :info="$page.allWordPressWork.pageInfo" />
         </nav>
       </div>
     </div>
@@ -23,20 +23,15 @@
 </template>
 
 <page-query>
-query Journal ($page: Int) {
-  allWordPressPost (page: $page, perPage: 24) @paginate {
+query Work ($page: Int) {
+  allWordPressWork (page: $page, perPage: 24) @paginate {
     pageInfo {
       totalPages
       currentPage
     }
     edges {
       node {
-        id
-        title
         path
-        date
-        dateGmt
-        excerpt
         featuredMedia {
           sourceUrl
           altText
@@ -75,7 +70,7 @@ query Journal ($page: Int) {
       }
     },
     metaInfo: {
-      title: 'Journal'
+      title: 'Work'
     }
   };
 </script>

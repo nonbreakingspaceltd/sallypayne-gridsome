@@ -3,7 +3,7 @@
     <div class="sp-l-page">
       <div class="sp-l-page__inner">
         <h1 class="sp-o-pagetitle">
-          About
+          Contact
         </h1>
       </div>
     </div></Layout
@@ -13,12 +13,12 @@
 <script>
   export default {
     metaInfo: {
-      title: `About`,
+      title: `Contact`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: `About Sally Payne's world of illustration and surface pattern design`
+          content: `Contact Sally Payne`
         }
       ]
     }

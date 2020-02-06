@@ -3,17 +3,16 @@ export default {
     return {
       menuIn: false,
       windowWidth: 1024,
-      tick: null
+      tick: null,
+      resizeTimeout: null
     };
   },
-  created() {
-    if (process.client) {
-      window.addEventListener('resize', this.handleResize);
-      this.handleResize();
-    }
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   },
   destroyed() {
-    if (process.client) {
+    if (process.isClient) {
       window.removeEventListener('resize', this.handleResize);
     }
   },
@@ -32,9 +31,13 @@ export default {
     handleResize() {
       let tock = Date.now();
       this.tick = tock;
-      setTimeout(() => {
+      if (this.resizeTimeout) {
+        clearTimeout(this.resizeTimeout);
+      }
+      this.resizeTimeout = setTimeout(() => {
         if (this.tick === tock) {
           this.windowWidth = window.innerWidth;
+          clearTimeout(this.resizeTimeout);
         }
       }, 100);
     },

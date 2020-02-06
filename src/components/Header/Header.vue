@@ -1,5 +1,5 @@
 <template>
-  <header class="sp-c-header" role="banner">
+  <header class="sp-c-header" role="banner" v-scroll-lock="menuIn">
     <div class="sp-c-header__logo">
       <g-link to="/" class="sp-c-header__logo__link">
         <svg

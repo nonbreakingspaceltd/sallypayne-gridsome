@@ -57,14 +57,26 @@ module.exports = {
         apiBase: 'wp-json',
         typeName: 'WordPress',
         perPage: 100,
-        concurrent: 10
+        concurrent: 10,
+        customEndpoints: [
+          {
+            typeName: 'Work',
+            route: process.env.WORDPRESS_WORK,
+            normalize: true
+          },
+          {
+            typeName: 'Products',
+            route: process.env.WORDPRESS_PRODUCTS,
+            normalize: true
+          }
+        ]
       }
     }
   ],
   templates: {
-    WordPressPost: '/journal/:slug'
-    // WordPressProduct: '/shop/:slug',
-    // WordPressWork: '/work/:slug'
+    WordPressPost: '/journal/:slug',
+    WordPressEtsyProducts: '/shop/:slug',
+    WordPressWork: '/work/:slug'
   },
   chainWebpack(config) {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];

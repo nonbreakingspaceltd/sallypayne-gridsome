@@ -31,9 +31,9 @@
               class="sp-c-post__title"
               v-html="$page.wordPressPost.title"
             ></h1>
-            <!-- <p class="sp-c-post__posted">
-              {{ post.date_gmt | moment('dddd, MMMM Do YYYY') }}
-            </p> -->
+            <p class="sp-c-post__posted">
+              {{ this.$page.wordPressPost.dateGmt | moment('dddd, MMMM Do YYYY') }}
+            </p>
           </header>
           <div
             class="sp-c-post__content"
@@ -51,11 +51,13 @@ query WordPressPost ($id: ID!) {
   wordPressPost(id: $id) {
     title
     content
+    dateGmt
   }
 }
 </page-query>
 
 <script>
+  import moment from 'moment';
   export default {
     metaInfo() {
       return {

@@ -2,11 +2,10 @@
   padding: calc(var(--baseline) * 4) calc(var(--baseline) * 4);
   position: fixed;
   z-index: 99;
-  background-color: rgba(255,255,255,0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   top: 0;
   left: 0;
   right: 0;
-  backdrop-filter: blur(5px);
 
   @media (--mq-m) {
     padding: calc(var(--baseline) * 4) calc(var(--baseline) * 8);
@@ -14,6 +13,7 @@
 
   @media (--mq-l) {
     padding: 28px 32px;
+    backdrop-filter: blur(5px);
   }
 
   &__logo {
@@ -64,7 +64,7 @@
     }
 
     &:hover &__svg,
-    &:focus &__svg{
+    &:focus &__svg {
       fill: var(--color-black);
     }
   }
@@ -129,7 +129,7 @@
         }
 
         &::after {
-          content: "........................";
+          content: '........................';
           display: block;
           position: absolute;
           bottom: -10px;
@@ -142,14 +142,12 @@
       &:hover &__label,
       &:focus &__label,
       &.active &__label {
-
         &::after {
           opacity: 1;
         }
       }
 
       &--about {
-
         &:hover,
         &:focus,
         &.active {
@@ -158,7 +156,6 @@
       }
 
       &--work {
-
         &:hover,
         &:focus,
         &.active {
@@ -167,7 +164,6 @@
       }
 
       &--shop {
-
         &:hover,
         &:focus,
         &.active {
@@ -176,7 +172,6 @@
       }
 
       &--journal {
-
         &:hover,
         &:focus,
         &.active {
@@ -185,7 +180,6 @@
       }
 
       &--contact {
-
         &:hover,
         &:focus,
         &.active {

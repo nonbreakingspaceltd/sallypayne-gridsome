@@ -1,15 +1,14 @@
 .sp-c-pagination {
-  display: flex;
-  width: 100%;
+  display: block;
   padding: 32px 0;
+  text-align: center;
 
-  &__link {
-    flex: 1;
-    display: block;
-
-    &--next {
-      align-self: flex-end;
-      text-align: right;
-    }
+  a { 
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
   }
 }
