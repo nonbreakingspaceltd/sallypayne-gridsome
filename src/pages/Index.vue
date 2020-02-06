@@ -6,9 +6,20 @@
           Sally Payne
         </h1>
         <div class="sp-c-homecanvas">
-          <div class="sp-c-homecanvas__inner">
-          <iframe class="sp-c-homecanvas__iframe" src="/animations/home.html" scrolling="no"></iframe>
+          <div class="sp-c-homecanvas__loading" v-show="loading">
+            Loading&hellip;
           </div>
+          <transition name="fade">
+            <div class="sp-c-homecanvas__inner" v-show="loaded">
+              <iframe
+                ref="animation"
+                @load="load()"
+                class="sp-c-homecanvas__iframe"
+                src="/animations/home.html"
+                scrolling="no"
+              ></iframe>
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -16,17 +27,50 @@
 </template>
 
 <script>
-export default {
-  metaInfo: {
-    title: `Sally Payne — Illustration & Surface Pattern Design`,
-    titleTemplate: '',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: `Welcome to Sally Payne's world of illustration and surface pattern design`
+  export default {
+    metaInfo: {
+      title: `Sally Payne - Illustration & Surface Pattern Design`,
+      titleTemplate: '',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Welcome to Sally Payne's world of illustration and surface pattern design`
+        }
+      ]
+    },
+    data() {
+      return {
+        loading: false,
+        loaded: false,
+        loadingTimeout: null
+      };
+    },
+    mounted() {
+      const vm = this;
+      vm.loadingTimeout = setTimeout(() => {
+        if (!vm.loaded) {
+          vm.loading = true;
+        }
+        clearTimeout(vm.loadingTimeout);
+      }, 1000);
+    },
+    methods: {
+      load() {
+        this.loaded = true;
+        this.loading = false;
       }
-    ]
-  }
-}
+    }
+  };
 </script>
+
+<style scoped>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 1s;
+    transition-delay: 0.5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+</style>

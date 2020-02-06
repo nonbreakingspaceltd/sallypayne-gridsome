@@ -8,7 +8,15 @@
     align-content: center;
   }
 
-  .sp-c-homecanvas__inner {
+  &__loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+
+
+  &__inner {
     width: 120vh;
     position: relative;
     max-width: 1200px;
