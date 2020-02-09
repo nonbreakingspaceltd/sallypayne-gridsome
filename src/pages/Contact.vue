@@ -9,6 +9,7 @@
           Say "Hello"
         </h1>
         <form class="c-form" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+          <label class="sp-u-sronly">Ingnore this field if you're human: <input name="bot-field" /></label>
           <div class="c-form__item">
             <label for="formName">Full Name</label>
             <input type="text" name="name" id="formName" required />
