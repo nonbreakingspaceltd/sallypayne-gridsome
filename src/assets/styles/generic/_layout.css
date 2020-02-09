@@ -31,18 +31,16 @@
   }
 
   &--work {
-    background-color: #f5f5f5;
-    /* background-color: var(--color-brand--b); */
-    background-image: url('../../../static/images/bg__grid-paper-1.png');
+    background-color: var(--color-brand--b);
+    /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
     background-position: 50% 50%;
     background-repeat: repeat;
     background-size: 150px 36px;
   }
 
   &--journal {
-    background-color: #f5f5f5;
-    /* background-color: var(--color-brand--d); */
-    background-image: url('../../../static/images/bg__grid-paper-1.png');
+    background-color: var(--color-brand--d);
+    /* background-image: url('../../../static/images/bg__grid-paper-1.png'); */
     background-position: 50% 50%;
     background-repeat: repeat;
     background-size: 150px 36px;

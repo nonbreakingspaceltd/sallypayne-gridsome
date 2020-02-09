@@ -29,13 +29,13 @@ export default {
     imageSrc() {
       let src = null;
       if (this.content.featuredMedia) {
-        src =
-          this.content.featuredMedia.mediaDetails.sizes &&
-          this.content.featuredMedia.mediaDetails.sizes.mediumLarge &&
-          this.content.featuredMedia.mediaDetails.sizes.mediumLarge.sourceUrl
-            ? this.content.featuredMedia.mediaDetails.sizes.mediumLarge
-                .sourceUrl
-            : this.content.featuredMedia.sourceUrl;
+        if (this.content.featuredMedia.mediaDetails.sizes.squareLarge) {
+          src = this.content.featuredMedia.mediaDetails.sizes.squareLarge
+            .sourceUrl;
+        } else if (this.content.featuredMedia.mediaDetails.sizes.mediumLarge) {
+          src = this.content.featuredMedia.mediaDetails.sizes.mediumLarge
+            .sourceUrl;
+        }
       } else if (this.content.images) {
         const image = this.content.images[1] || this.content.images[0];
         src = image && image.url_570xN ? image.url_570xN : null;
@@ -48,9 +48,21 @@ export default {
         : this.content.title;
     },
     featuredImage() {
-      let metadata = {};
+      let metadata = {
+        width: 1,
+        height: 1
+      }
       if (this.content.featuredMedia) {
-        metadata = this.content.featuredMedia.mediaDetails;
+        let image;
+        if (this.content.featuredMedia.mediaDetails.sizes.squareLarge) {
+          image = this.content.featuredMedia.mediaDetails.sizes.squareLarge;
+        } else if (this.content.featuredMedia.mediaDetails.sizes.mediumLarge) {
+          image = this.content.featuredMedia.mediaDetails.sizes.mediumLarge;
+        }
+        metadata = {
+          width: image.width,
+          height: image.height
+        };
       } else if (this.content.images) {
         const image = this.content.images[1] || this.content.images[0];
         metadata = {

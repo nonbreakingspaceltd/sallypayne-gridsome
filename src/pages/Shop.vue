@@ -5,15 +5,7 @@
         <h1 class="sp-o-pagetitle sp-u-sronly">
           Shop
         </h1>
-        <masonry
-          :cols="masonryCols"
-          :gutter="32"
-          v-if="$page.allEtsyProduct.edges"
-        >
-          <template v-for="{ node } in $page.allEtsyProduct.edges">
-            <Card :content="node" modifier="product" :key="node.id" />
-          </template>
-        </masonry>
+        <Masonry v-if="$page.allEtsyProduct.edges" :items="$page.allEtsyProduct.edges" card-modifier="product" />
       </div>
     </div>
   </Layout>
@@ -47,21 +39,12 @@ query Shop {
 
 <script>
   import { Pager } from 'gridsome';
-  import Card from '~/components/Card';
+  import Masonry from '~/components/Masonry';
+
   export default {
     components: {
       Pager,
-      Card
-    },
-    computed: {
-      masonryCols() {
-        return {
-          default: 4,
-          1280: 3,
-          1024: 2,
-          600: 1
-        };
-      }
+      Masonry
     },
     metaInfo: {
       title: 'Shop',

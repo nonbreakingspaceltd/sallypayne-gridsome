@@ -5,15 +5,7 @@
         <h1 class="sp-o-pagetitle sp-u-sronly">
           Work
         </h1>
-        <masonry
-          :cols="masonryCols"
-          :gutter="32"
-          v-if="$page.allWordPressWork.edges"
-        >
-          <template v-for="{ node } in $page.allWordPressWork.edges">
-            <Card :content="node" modifier="work" :key="node.id" />
-          </template>
-        </masonry>
+        <Masonry v-if="$page.allWordPressWork.edges" :items="$page.allWordPressWork.edges" card-modifier="work" />
         <nav class="sp-c-pagination">
           <Pager :info="$page.allWordPressWork.pageInfo" />
         </nav>
@@ -36,11 +28,11 @@ query Work ($page: Int) {
           sourceUrl
           altText
           mediaDetails {
-            width
-            height
             sizes {
-              mediumLarge {
+              squareLarge {
                 sourceUrl
+                height
+                width
               }
             }
           }
@@ -53,21 +45,12 @@ query Work ($page: Int) {
 
 <script>
   import { Pager } from 'gridsome';
-  import Card from '~/components/Card';
+  import Masonry from '~/components/Masonry';
+
   export default {
     components: {
       Pager,
-      Card
-    },
-    computed: {
-      masonryCols() {
-        return {
-          default: 4,
-          1280: 3,
-          1024: 2,
-          600: 1
-        };
-      }
+      Masonry
     },
     metaInfo: {
       title: 'Work',

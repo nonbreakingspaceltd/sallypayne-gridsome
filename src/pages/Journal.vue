@@ -5,15 +5,7 @@
         <h1 class="sp-o-pagetitle sp-u-sronly">
           Journal
         </h1>
-        <masonry
-          :cols="masonryCols"
-          :gutter="32"
-          v-if="$page.allWordPressPost.edges"
-        >
-          <template v-for="{ node } in $page.allWordPressPost.edges">
-            <Card :content="node" modifier="journal" :key="node.id" />
-          </template>
-        </masonry>
+        <Masonry v-if="$page.allWordPressPost.edges" :items="$page.allWordPressPost.edges" card-modifier="journal" />
         <nav class="sp-c-pagination">
           <Pager :info="$page.allWordPressPost.pageInfo" />
         </nav>
@@ -41,11 +33,11 @@ query Journal ($page: Int) {
           sourceUrl
           altText
           mediaDetails {
-            width
-            height
             sizes {
               mediumLarge {
                 sourceUrl
+                height
+                width
               }
             }
           }
@@ -58,21 +50,12 @@ query Journal ($page: Int) {
 
 <script>
   import { Pager } from 'gridsome';
-  import Card from '~/components/Card';
+  import Masonry from '~/components/Masonry';
+
   export default {
     components: {
       Pager,
-      Card
-    },
-    computed: {
-      masonryCols() {
-        return {
-          default: 4,
-          1280: 3,
-          1024: 2,
-          600: 1
-        };
-      }
+      Masonry
     },
     metaInfo: {
       title: 'Journal',
@@ -83,6 +66,6 @@ query Journal ($page: Int) {
           content: `Sally Payne's Journal is a place to share scribbles, illustrations and ideas.`
         }
       ]
-    }
+    },
   };
 </script>
