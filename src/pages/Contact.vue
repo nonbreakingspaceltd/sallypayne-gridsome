@@ -2,7 +2,7 @@
   <Layout>
     <div class="sp-l-page sp-l-page--contact">
       <div class="sp-l-page__section sp-l-page__section--0">
-        <g-image src="~/assets/images/sally-office.jpg" alt="Sally's Office" />
+        <g-image src="~/assets/images/contact-pattern.jpg" alt="Animal pattern" />
       </div>
       <div class="sp-l-page__section sp-l-page__section--1">
         <h1 class="sp-o-pagetitle">
