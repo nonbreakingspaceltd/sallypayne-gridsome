@@ -27,14 +27,11 @@
         </nav>
         <article class="sp-c-product">
           <div class="sp-c-product__inner">
-            <figure
-              class="sp-c-product__media"
-              v-if="$page.wordPressEtsyProducts.featuredImageUrl"
-            >
+            <figure class="sp-c-product__media" v-if="$page.etsyProduct.images">
               <img
                 class="sp-c-product__media__image"
-                :src="$page.wordPressEtsyProducts.featuredImageUrl"
-                :alt="$page.wordPressEtsyProducts.title"
+                :src="imgSrc"
+                :alt="$page.etsyProduct.title"
               />
             </figure>
             <div class="sp-c-product__details">
@@ -42,20 +39,20 @@
                 <header class="sp-c-product__header">
                   <h1
                     class="sp-c-product__title"
-                    v-html="$page.wordPressEtsyProducts.title"
+                    v-html="$page.etsyProduct.title"
                   ></h1>
                   <p class="sp-c-product__price">
-                    &pound;{{ $page.wordPressEtsyProducts.price }}
+                    &pound;{{ $page.etsyProduct.price }}
                   </p>
                 </header>
                 <div
                   class="sp-c-product__content"
-                  v-if="$page.wordPressEtsyProducts.content"
-                  v-html="$page.wordPressEtsyProducts.content"
+                  v-if="$page.etsyProduct.description"
+                  v-html="$page.etsyProduct.description"
                 ></div>
                 <p>
                   <a
-                    :href="$page.wordPressEtsyProducts.productUrl"
+                    :href="$page.etsyProduct.url"
                     target="_blank"
                     class="sp-c-btn sp-c-btn--etsy"
                   >
@@ -83,13 +80,23 @@
 </template>
 
 <page-query>
-query WordPressEtsyProducts ($id: ID!) {
-  wordPressEtsyProducts(id: $id) {
+query EtsyProducts ($id: ID!) {
+  etsyProduct(id: $id) {
+    id
+    listingId
     title
-    content
     price
-    productUrl
-    featuredImageUrl
+    currencyCode
+    state
+    images {
+      url_fullxfull
+      url_570xN
+      full_height
+      full_width
+    }
+    slug
+    description
+    url
   }
 }
 </page-query>
@@ -99,8 +106,14 @@ query WordPressEtsyProducts ($id: ID!) {
   export default {
     metaInfo() {
       return {
-        title: `${decodeEntities(this.$page.wordPressEtsyProducts.title)} - Shop`
+        title: `${decodeEntities(this.$page.etsyProduct.title)} - Shop`
       };
+    },
+    computed: {
+      imgSrc() {
+        const images = this.$page.etsyProduct.images;
+        return images[1] ? images[1].url_570xN : images[0].url_570xN;
+      }
     }
   };
 </script>

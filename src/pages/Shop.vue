@@ -8,47 +8,37 @@
         <masonry
           :cols="masonryCols"
           :gutter="32"
-          v-if="$page.allWordPressEtsyProducts.edges"
+          v-if="$page.allEtsyProduct.edges"
         >
-          <template v-for="{ node } in $page.allWordPressEtsyProducts.edges">
+          <template v-for="{ node } in $page.allEtsyProduct.edges">
             <Card :content="node" modifier="product" :key="node.id" />
           </template>
         </masonry>
-        <nav class="sp-c-pagination">
-          <Pager :info="$page.allWordPressEtsyProducts.pageInfo" />
-        </nav>
       </div>
     </div>
   </Layout>
 </template>
 
 <page-query>
-query Shop ($page: Int) {
-  allWordPressEtsyProducts (page: $page, perPage: 24) @paginate {
-    pageInfo {
-      totalPages
-      currentPage
-    }
+query Shop {
+  allEtsyProduct(filter:{ state: { eq:"active" } } ) {
     edges {
-      node {
+       node {
         id
+        listingId
         title
-        path
-        date
-        dateGmt
-        featuredMedia {
-          sourceUrl
-          altText
-          mediaDetails {
-            width
-            height
-            sizes {
-              mediumLarge {
-                sourceUrl
-              }
-            }
-          }
+        price
+        currencyCode
+        state
+        images {
+          url_fullxfull
+          url_570xN
+          full_height
+          full_width
         }
+        path
+        description
+        url
       }
     }
   }

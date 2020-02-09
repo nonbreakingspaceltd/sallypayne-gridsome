@@ -63,19 +63,21 @@ module.exports = {
             typeName: 'Work',
             route: process.env.WORDPRESS_WORK,
             normalize: true
-          },
-          {
-            typeName: 'Products',
-            route: process.env.WORDPRESS_PRODUCTS,
-            normalize: true
           }
         ]
+      }
+    },
+    {
+      use: 'gridsome-source-etsy',
+      options: {
+        shopId: process.env.ETSY_SHOPID,
+        token: process.env.ETSY_TOKEN,
       }
     }
   ],
   templates: {
     WordPressPost: '/journal/:slug',
-    WordPressEtsyProducts: '/shop/:slug',
+    EtsyProduct: '/shop/:slug/:id',
     WordPressWork: '/work/:slug'
   },
   chainWebpack(config) {

@@ -60,7 +60,6 @@ export default {
     lazyLoadImage() {
       const vm = this;
       vm.isLazy = true;
-      console.log('image', vm.$refs.image);
       this.loading = true;
       const observer = lozad(vm.$refs.image, {
         loaded: () => {

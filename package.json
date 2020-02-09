@@ -12,7 +12,7 @@
     "decode-entities": "^1.0.7",
     "dotenv": "^8.2.0",
     "gridsome": "^0.7.0",
-    "gridsome-custom-source": "./plugins/gridsome-custom-source",
+    "gridsome-source-etsy": "^0.1.0",
     "gridsome-source-wordpress": "^0.4.13",
     "lozad": "^1.14.0",
     "medium-zoom": "^1.0.5",

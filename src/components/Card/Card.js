@@ -26,37 +26,44 @@ export default {
       }
       return classes;
     },
-    imagePadding() {
-      return this.content.featuredMedia
-        ? (this.content.featuredMedia.mediaDetails.height /
-            this.content.featuredMedia.mediaDetails.width) *
-            100
-        : 0;
-    },
     imageSrc() {
-      return this.content.featuredMedia.mediaDetails.sizes &&
-        this.content.featuredMedia.mediaDetails.sizes.mediumLarge &&
-        this.content.featuredMedia.mediaDetails.sizes.mediumLarge.sourceUrl
-        ? this.content.featuredMedia.mediaDetails.sizes.mediumLarge.sourceUrl
-        : this.content.featuredMedia.sourceUrl;
+      let src = null;
+      if (this.content.featuredMedia) {
+        src =
+          this.content.featuredMedia.mediaDetails.sizes &&
+          this.content.featuredMedia.mediaDetails.sizes.mediumLarge &&
+          this.content.featuredMedia.mediaDetails.sizes.mediumLarge.sourceUrl
+            ? this.content.featuredMedia.mediaDetails.sizes.mediumLarge
+                .sourceUrl
+            : this.content.featuredMedia.sourceUrl;
+      } else if (this.content.images) {
+        const image = this.content.images[1] || this.content.images[0];
+        src = image && image.url_570xN ? image.url_570xN : null;
+      }
+      return src;
     },
     imageAlt() {
-      return this.content.featuredMedia.alt
+      return this.content.featuredMedia && this.content.featuredMedia.alt
         ? this.content.featuredMedia.alt
         : this.content.title;
     },
     featuredImage() {
-      if (!this.content.featuredMedia) {
-        return null;
+      let metadata = {};
+      if (this.content.featuredMedia) {
+        metadata = this.content.featuredMedia.mediaDetails;
+      } else if (this.content.images) {
+        const image = this.content.images[1] || this.content.images[0];
+        metadata = {
+          width: image.full_width,
+          height: image.full_height
+        };
+        console.log(image);
       }
-      const featuredImageMetadata = this.content.featuredMedia.mediaDetails;
       return {
         src: this.imageSrc,
-        width: featuredImageMetadata.width,
-        height: featuredImageMetadata.height,
-        alt: this.imageAlt,
-        //lqip: featuredImageMetadata ? featuredImageMetadata.lqip : null
-        //bgcolor: featuredImageMetadata ? featuredImageMetadata.palette.muted.background : null
+        width: metadata.width,
+        height: metadata.height,
+        alt: this.imageAlt
       };
     }
   }
