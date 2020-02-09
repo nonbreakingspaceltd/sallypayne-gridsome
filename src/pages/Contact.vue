@@ -8,7 +8,7 @@
         <h1 class="sp-o-pagetitle">
           Say "Hello"
         </h1>
-        <form class="c-form" name="contact" method="POST" data-netlify="true">
+        <form action="/contact/success/" class="c-form" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
           <div class="c-form__item">
             <label for="formName">Full Name</label>
             <input type="text" name="name" id="formName" required />
