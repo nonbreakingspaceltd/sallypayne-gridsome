@@ -8,9 +8,7 @@
         />
       </div>
       <div class="sp-l-page__section sp-l-page__section--1">
-        <h1 class="sp-o-pagetitle">
-          Say "Hello"
-        </h1>
+        <h1 class="sp-o-pagetitle" v-html="$page.wordPressPage.title" />
         <form
           v-on:submit.prevent="handleSubmit"
           action="/contact/success/"
@@ -57,7 +55,7 @@
             ></textarea>
           </div>
           <div class="c-form__actions">
-            <button type="submit" class="sp-c-btn sp-c-btn--color-e">
+            <button type="submit" class="sp-c-btn sp-c-btn--color-e" :disabled="submitting">
               Send your message
             </button>
           </div>
@@ -73,6 +71,14 @@
   </Layout>
 </template>
 
+<page-query>
+query Contact {
+  wordPressPage (id: "30040") {
+    title
+  }
+}
+</page-query>
+
 <script>
   export default {
     metaInfo: {
@@ -81,13 +87,14 @@
         {
           hid: 'description',
           name: 'description',
-          content: `Contact Sally Payne`
+          content: `Contact Sally Payne about work, collaborations and projects you may have in mind.`
         }
       ]
     },
     data() {
       return {
-        formData: {}
+        formData: {},
+        submitting: false
       };
     },
     methods: {
@@ -99,6 +106,7 @@
           .join('&');
       },
       handleSubmit(e) {
+        this.submitting = true;
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -107,7 +115,10 @@
             ...this.formData
           })
         })
-          .then(() => this.$router.push('/contact/success/'))
+          .then(() => {
+            this.submitting = false;
+            this.$router.push('/contact/success/')
+          })
           .catch(error => alert(error));
       }
     }

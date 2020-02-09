@@ -70,7 +70,14 @@ query Work ($page: Int) {
       }
     },
     metaInfo: {
-      title: 'Work'
+      title: 'Work',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Examples of Sally Payne's work. Illustrations, Surface Paterns, Books and more.`
+        }
+      ]
     }
   };
 </script>

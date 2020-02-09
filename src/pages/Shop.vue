@@ -64,7 +64,14 @@ query Shop {
       }
     },
     metaInfo: {
-      title: 'Shop'
+      title: 'Shop',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Buy products from Sally Payne's Etsy shop.`
+        }
+      ]
     }
   };
 </script>

@@ -5,25 +5,31 @@
         <g-image src="~/assets/images/contact-pattern.jpg" alt="Animal pattern" />
       </div>
       <div class="sp-l-page__section sp-l-page__section--1">
-        <h1 class="sp-o-pagetitle">
-          Success!
-        </h1>
-        <p>Your message has been successfully sent!</p>
+        <h1 class="sp-o-pagetitle" v-html="$page.wordPressPage.title" />
+        <div class="sp-o-pagecontent" v-html="$page.wordPressPage.content" />
         <p><g-link to="/contact/">Back to the contact page</g-link></p>
       </div>
     </div>
   </Layout>
 </template>
 
+<page-query>
+query Contact {
+  wordPressPage (id: "30042") {
+    title
+  }
+}
+</page-query>
+
 <script>
   export default {
     metaInfo: {
-      title: `Contact Success`,
+      title: `Message Sent`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: `Contact Success Sally Payne`
+          content: `Message successfully sent to Sally Payne`
         }
       ]
     }

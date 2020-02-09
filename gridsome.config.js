@@ -48,7 +48,7 @@ const postcssPlugins = [
 ];
 
 module.exports = {
-  siteName: 'Sally Payne',
+  siteName: 'Sally Payne Illustration & Design',
   plugins: [
     {
       use: '@gridsome/source-wordpress',

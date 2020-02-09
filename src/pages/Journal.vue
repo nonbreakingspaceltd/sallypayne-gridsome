@@ -75,7 +75,14 @@ query Journal ($page: Int) {
       }
     },
     metaInfo: {
-      title: 'Journal'
+      title: 'Journal',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Sally Payne's Journal is a place to share scribbles, illustrations and ideas.`
+        }
+      ]
     }
   };
 </script>
