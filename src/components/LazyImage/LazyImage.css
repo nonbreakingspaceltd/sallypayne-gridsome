@@ -1,0 +1,29 @@
+.c-lazy-image {
+  background-color: var(--color-scale-neutrals-7);
+
+  .js & {
+    opacity: 0;
+    transition: opacity 0.4s;
+
+    &--loaded {
+      opacity: 1;
+    } 
+  }
+
+  &__container {
+    display: none;
+
+    .js & {
+      position: relative;
+      display: block;
+    }
+
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

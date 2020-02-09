@@ -3,17 +3,14 @@
     class="sp-c-work"
     :style="`background-color:${content.backgroundColor};`"
   >
-    <h1
-      class="sp-c-work__title sp-u-sronly"
-      v-html="content.title"
-    ></h1>
+    <h1 class="sp-c-work__title sp-u-sronly" v-html="content.title"></h1>
     <div
       class="sp-c-work__pattern"
       :style="`background-image:url(${content.featuredImageUrl})`"
       v-if="repeatImage && content.featuredImageUrl"
     >
       <figure class="sp-c-work__media sp-u-sronly">
-        <img
+        <g-image
           class="sp-c-work__media__image"
           :src="content.featuredImageUrl"
           :alt="content.title"
@@ -26,7 +23,7 @@
       v-if="!repeatImage && content.featuredImageUrl"
       ref="media"
     >
-      <img
+      <g-image
         class="sp-c-work__media__image"
         :src="content.featuredImageUrl"
         :alt="content.title"
@@ -38,6 +35,7 @@
         class="sp-c-work__nav__item sp-c-work__nav__item--prev"
         :to="`/work/${content.previous.slug}`"
         v-if="content.previous"
+        title="Previous Work Item"
       >
         <svg
           class="sp-c-work__nav__item__svg"
@@ -63,6 +61,7 @@
         class="sp-c-work__nav__item sp-c-work__nav__item--next"
         :to="`/work/${content.next.slug}`"
         v-if="content.next"
+        title="Next Work Item"
       >
         <svg
           class="sp-c-work__nav__item__svg"

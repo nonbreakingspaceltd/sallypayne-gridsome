@@ -1,4 +1,10 @@
+import LazyImage from '../LazyImage';
+import '@gouch/to-title-case';
+
 export default {
+  components: {
+    LazyImage
+  },
   props: {
     content: {
       type: Object,
@@ -10,6 +16,9 @@ export default {
     }
   },
   computed: {
+    title() {
+      return this.content.title.toTitleCase();
+    },
     modifierClass() {
       let classes = '';
       if (this.modifier) {
@@ -35,6 +44,20 @@ export default {
       return this.content.featuredMedia.alt
         ? this.content.featuredMedia.alt
         : this.content.title;
+    },
+    featuredImage() {
+      if (!this.content.featuredMedia) {
+        return null;
+      }
+      const featuredImageMetadata = this.content.featuredMedia.mediaDetails;
+      return {
+        src: this.imageSrc,
+        width: featuredImageMetadata.width,
+        height: featuredImageMetadata.height,
+        alt: this.imageAlt,
+        //lqip: featuredImageMetadata ? featuredImageMetadata.lqip : null
+        //bgcolor: featuredImageMetadata ? featuredImageMetadata.palette.muted.background : null
+      };
     }
   }
 };

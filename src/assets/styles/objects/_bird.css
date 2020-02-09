@@ -3,8 +3,9 @@
   width: 32px;
   top: 18%;
   left: 80%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
   z-index: 2;
+  backface-visibility: hidden;
 
   @media (--mq-m) {
     width: 48px;
@@ -16,6 +17,8 @@
     animation: fly 1500ms infinite alternate;
     max-width: 100%;
     overflow: visible;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   &__body-outline {
@@ -23,7 +26,7 @@
   }
 
   &__body {
-    fill: #ffffff;
+    fill: var(--color-white);
   }
 
   &__eye {

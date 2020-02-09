@@ -6,8 +6,8 @@
           Oh dear. Sorry, but this page does not exist!
         </h1>
       </div>
-    </div></Layout
-  >
+    </div>
+  </Layout>
 </template>
 
 <script>

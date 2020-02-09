@@ -1,0 +1,7 @@
+.sp-o-pagetitle {
+  margin-bottom: 8px;
+
+  @media (--mq-m) {
+    padding-bottom: 24px;
+  }
+}

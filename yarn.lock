@@ -689,6 +689,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@gouch/to-title-case@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@gouch/to-title-case/-/to-title-case-2.2.1.tgz#44a1de1bb02351d6a0d92ec1a325000158423874"
+  integrity sha512-i/Hj91LfiE2pxYdIT0Ttdc/fIzdBwojDNQe6S6/N/Uf3xMmn0lWO+iLkAd84zs/NUGfTLsMUacDZzSy6N4jkcw==
+
 "@gridsome/cli@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@gridsome/cli/-/cli-0.3.1.tgz#8bdf97facddb3ab5338eb57521bc0bf5808561d2"
@@ -4047,6 +4052,19 @@ graphql@^14.4.2:
   dependencies:
     iterall "^1.2.2"
 
+gridsome-custom-source@./plugins/gridsome-custom-source:
+  version "0.0.0"
+
+gridsome-source-wordpress@^0.4.13:
+  version "0.4.13"
+  resolved "https://registry.yarnpkg.com/gridsome-source-wordpress/-/gridsome-source-wordpress-0.4.13.tgz#63638a1e9346daef412c4c78b1cc7e4adcbf87ec"
+  integrity sha512-/0ZntSIIfG4QLrrC9xjDF/beFX8lEsuddp0zUjv4G0rsoeyDokZ48TtSMwAyblyhDgXviLH5QMDpTNIyd+u6uQ==
+  dependencies:
+    axios "^0.19.0"
+    camelcase "^5.0.0"
+    lodash "^4.17.11"
+    p-map "^1.2.0"
+
 gridsome@^0.7.0:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/gridsome/-/gridsome-0.7.12.tgz#62f602797fb8a18a0b61f6e16a41714743d10f85"
@@ -5275,6 +5293,11 @@ lowercase-keys@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-2.0.0.tgz#2603e78b7b4b0006cbca2fbcc8a3202558ac9479"
   integrity sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA==
+
+lozad@^1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/lozad/-/lozad-1.14.0.tgz#91d51d57e53187e95c5b7f4029d7a28a0e940e10"
+  integrity sha512-uMGxpXBW15JDGVly3p121Y4jlb/OwmXpnMQR5vnb4GxMeK45NGcmlMrRr47fmLxtSdnGRFm0YdJaVXuudPKDaA==
 
 lpad-align@^1.0.1:
   version "1.1.2"

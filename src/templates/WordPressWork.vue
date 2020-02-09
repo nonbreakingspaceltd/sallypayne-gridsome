@@ -14,6 +14,19 @@ query WordPressWork ($id: ID!) {
     title,
     backgroundColor,
     featuredImageUrl
+    featuredMedia {
+      sourceUrl
+      altText
+      mediaDetails {
+        width
+        height
+        sizes {
+          mediumLarge {
+            sourceUrl
+          }
+        }
+      }
+    }
     repeatFeaturedImage
     previous {
       slug
@@ -36,6 +49,6 @@ query WordPressWork ($id: ID!) {
       return {
         title: `${decodeEntities(this.$page.wordPressWork.title)} - Work`
       };
-    },
+    }
   };
 </script>

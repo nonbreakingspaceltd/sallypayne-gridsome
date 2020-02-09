@@ -1,13 +1,36 @@
 <template>
   <Layout>
-    <div class="sp-l-page">
-      <div class="sp-l-page__inner">
-        <h1 class="sp-o-pagetitle">
-          Contact
-        </h1>
+    <div class="sp-l-page sp-l-page--contact">
+      <div class="sp-l-page__section sp-l-page__section--0">
+        <g-image src="~/assets/images/sally-office.jpg" alt="Sally's Office" />
       </div>
-    </div></Layout
-  >
+      <div class="sp-l-page__section sp-l-page__section--1">
+        <h1 class="sp-o-pagetitle">
+          Say "Hello"
+        </h1>
+        <form class="c-form" name="contact" method="POST" data-netlify="true">
+          <div class="c-form__item">
+            <label for="formName">Full Name</label>
+            <input type="text" name="name" id="formName" required />
+          </div>
+          <div class="c-form__item">
+            <label for="formEmail">Email Address</label>
+            <input type="email" name="email" id="formEmail" required />
+          </div>
+          <div class="c-form__item">
+            <label for="">What would you like to say?</label>
+            <textarea name="message" id="formMessage" required></textarea>
+          </div>
+          <div class="c-form__actions">
+            <button type="submit" class="sp-c-btn sp-c-btn--color-e">
+              Send your message
+            </button>
+          </div>
+        </form>
+        <p>&hellip;or simply email me at: <a href="mailto:sallypaynedesign@gmail.com">sallypaynedesign@gmail.com</a></p>
+      </div>
+    </div>
+  </Layout>
 </template>
 
 <script>

@@ -3,7 +3,7 @@
     <div class="sp-l-page">
       <div class="sp-l-page__inner">
         <nav class="sp-o-backlink">
-          <g-link class="sp-o-backlink__item" :to="`/journal`">
+          <g-link class="sp-o-backlink__item" :to="`/journal`" title="Back to Journal">
             <svg
               class="sp-c-work__nav__item__svg"
               viewBox="0 0 38 22"
@@ -29,10 +29,12 @@
           <header class="sp-c-post__header">
             <h1
               class="sp-c-post__title"
-              v-html="$page.wordPressPost.title"
+              v-html="title"
             ></h1>
             <p class="sp-c-post__posted">
-              {{ this.$page.wordPressPost.dateGmt | moment('dddd, MMMM Do YYYY') }}
+              {{
+                this.$page.wordPressPost.dateGmt | moment('dddd, MMMM Do YYYY')
+              }}
             </p>
           </header>
           <div
@@ -58,11 +60,18 @@ query WordPressPost ($id: ID!) {
 
 <script>
   import moment from 'moment';
+  import '@gouch/to-title-case';
+
   export default {
     metaInfo() {
       return {
-        title: this.$page.wordPressPost.title
+        title: this.title
       };
+    },
+    computed: {
+      title() {
+        return this.$page.wordPressPost.title.toTitleCase();
+      }
     }
   };
 </script>
