@@ -91,7 +91,7 @@
             </span>
           </g-link>
           <g-link
-            to="/work"
+            to="/work/"
             class="sp-c-header__nav__item sp-c-header__nav__item--work"
           >
             <span class="sp-c-header__nav__item__label">
@@ -99,7 +99,7 @@
             </span>
           </g-link>
           <g-link
-            to="/shop"
+            to="/shop/"
             class="sp-c-header__nav__item sp-c-header__nav__item--shop"
           >
             <span class="sp-c-header__nav__item__label">
@@ -107,7 +107,7 @@
             </span>
           </g-link>
           <g-link
-            to="/journal"
+            to="/journal/"
             class="sp-c-header__nav__item sp-c-header__nav__item--journal"
           >
             <span class="sp-c-header__nav__item__label">
@@ -115,7 +115,7 @@
             </span>
           </g-link>
           <g-link
-            to="/contact"
+            to="/contact/"
             class="sp-c-header__nav__item sp-c-header__nav__item--contact"
           >
             <span class="sp-c-header__nav__item__label">
