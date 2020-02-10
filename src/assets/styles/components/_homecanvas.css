@@ -35,6 +35,21 @@
     }
   }
 
+  &__lqip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    background-image: url('../../../static/images/bg__home-animation.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
   &__iframe {
     position: absolute;
     top: 0;

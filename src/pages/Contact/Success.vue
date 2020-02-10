@@ -17,6 +17,7 @@
 query Contact {
   wordPressPage (id: "30042") {
     title
+    content
   }
 }
 </page-query>

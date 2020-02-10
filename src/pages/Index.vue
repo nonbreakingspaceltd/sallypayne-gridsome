@@ -9,17 +9,20 @@
           <div class="sp-c-homecanvas__loading" v-show="loading">
             Loading&hellip;
           </div>
-          <transition name="fade">
-            <div class="sp-c-homecanvas__inner" v-show="loaded">
-              <iframe
-                ref="animation"
-                @load="load()"
-                class="sp-c-homecanvas__iframe"
-                src="/animations/home.html"
-                scrolling="no"
-              ></iframe>
+            <div class="sp-c-homecanvas__inner">
+              <div class="sp-c-homecanvas__lqip">
+                <transition name="fade">
+                  <iframe
+                    ref="animation"
+                    @load="load()"
+                    class="sp-c-homecanvas__iframe"
+                    src="/animations/home.html"
+                    scrolling="no"
+                    v-show="loaded"
+                  ></iframe>
+                </transition>
+              </div>
             </div>
-          </transition>
         </div>
       </div>
     </div>
@@ -67,7 +70,7 @@
 <style scoped>
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity 1s;
+    transition: opacity 0.5s;
     transition-delay: 0.5s;
   }
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {

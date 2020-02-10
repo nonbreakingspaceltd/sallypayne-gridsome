@@ -25,6 +25,15 @@ export default {
       }
     };
   },
+  watch: {
+    items() {
+      console.log('items change')
+      const vm = this;
+      vm.$nextTick(() => {
+        vm.resizeAllMasonryItems();
+      });
+    }
+  },
   methods: {
     resizeMasonryItem(item) {
       var grid = this.$el,
