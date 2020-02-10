@@ -46,7 +46,7 @@
             />
           </div>
           <div class="c-form__item">
-            <label for="">What would you like to say?</label>
+            <label for="formMessage">What would you like to say?</label>
             <textarea
               name="message"
               id="formMessage"
