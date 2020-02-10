@@ -6,9 +6,6 @@
           Sally Payne
         </h1>
         <div class="sp-c-homecanvas">
-          <div class="sp-c-homecanvas__loading" v-show="loading">
-            Loading&hellip;
-          </div>
           <div class="sp-c-homecanvas__inner">
             <transition name="fade">
               <div class="sp-c-homecanvas__lqip" aria-hidden="true" v-show="!loaded"></div>
