@@ -44,5 +44,10 @@ export default function(Vue, { router, head, isClient }) {
         font-style: normal;
       }
     `
-  })
+  });
+
+  head.link.push({
+    rel: `preconnect`,
+    href: `https://sallypayne-cms.spacedawwwg.com`,
+  });
 }
