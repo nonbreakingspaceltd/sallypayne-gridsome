@@ -10,9 +10,9 @@ export default {
       type: Array,
       required: true
     },
-    cardModifier: {
-      type: String,
-      default: null
+    cardProps: {
+      type: Object,
+      default: {}
     }
   },
   data() {
@@ -72,7 +72,9 @@ export default {
     this.masonryEvents.forEach(event => {
       window.addEventListener(event, vm.resizeAllMasonryItems);
     });
-    vm.resizeAllMasonryItems();
+    setTimeout(() => {
+      vm.resizeAllMasonryItems();
+    }, 10);
   },
   beforeDestroy() {
     const vm = this;

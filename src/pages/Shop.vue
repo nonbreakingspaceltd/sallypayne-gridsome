@@ -5,7 +5,11 @@
         <h1 class="sp-o-pagetitle sp-u-sronly">
           Shop
         </h1>
-        <Masonry v-if="$page.allEtsyProduct.edges" :items="$page.allEtsyProduct.edges" card-modifier="product" />
+        <Masonry
+          v-if="$page.allEtsyProduct.edges"
+          :items="$page.allEtsyProduct.edges"
+          :card-props="{ modifier: 'product' }"
+        />
       </div>
     </div>
   </Layout>

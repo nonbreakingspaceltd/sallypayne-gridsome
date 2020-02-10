@@ -6,7 +6,7 @@
           <LazyImage :image="featuredImage" class="sp-c-card__media__image" />
         </div>
       </figure>
-      <div v-if="content.title || content.excerpt" class="sp-c-card__content">
+      <div v-if="(content.title || content.excerpt) && renderTextContent" class="sp-c-card__content">
         <h3 class="sp-c-card__title" v-if="content.title" v-html="title" />
         <div
           class="sp-c-card__body"

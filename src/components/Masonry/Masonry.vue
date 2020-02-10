@@ -1,8 +1,8 @@
 <template>
   <div :class="classNames.container">
-    <div :class="classNames.item" v-for="({ node }, index) in items" :key="index">
+    <div :class="classNames.item" v-for="({ node }, index) in items" :key="index" >
       <div :class="classNames.content">
-        <Card :content="node" :modifier="cardModifier"/>
+        <Card :content="node" v-bind="cardProps" />
       </div>
     </div>
   </div>

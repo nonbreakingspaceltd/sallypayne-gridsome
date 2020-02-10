@@ -5,8 +5,15 @@
         <h1 class="sp-o-pagetitle sp-u-sronly">
           Work
         </h1>
-        <Masonry v-if="$page.allWordPressWork.edges" :items="$page.allWordPressWork.edges" card-modifier="work" />
-        <nav class="sp-c-pagination" v-if="$page.allWordPressWork.pageInfo.totalPages > 1">
+        <Masonry
+          v-if="$page.allWordPressWork.edges"
+          :items="$page.allWordPressWork.edges"
+          :card-props="{ modifier: 'work', renderTextContent: false }"
+        />
+        <nav
+          class="sp-c-pagination"
+          v-if="$page.allWordPressWork.pageInfo.totalPages > 1"
+        >
           <Pager :info="$page.allWordPressWork.pageInfo" />
         </nav>
       </div>

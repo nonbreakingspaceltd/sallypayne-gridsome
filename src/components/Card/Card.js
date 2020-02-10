@@ -13,6 +13,10 @@ export default {
     modifier: {
       type: String,
       default: null
+    },
+    renderTextContent: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
