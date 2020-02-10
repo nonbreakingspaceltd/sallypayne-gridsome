@@ -18,6 +18,7 @@
                 src="/animations/home.html"
                 scrolling="no"
                 v-show="loaded"
+                title="Homepage Animation"
               ></iframe>
             </transition>
           </div>

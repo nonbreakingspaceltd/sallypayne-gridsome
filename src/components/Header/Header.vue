@@ -52,6 +52,7 @@
       @click.prevent="toggleMenu"
       v-if="smallscreen"
     >
+      <span class="sp-u-sronly">Toggle menu</span>
       <svg
         class="sp-c-header__menu-toggle__svg"
         xmlns="http://www.w3.org/2000/svg"

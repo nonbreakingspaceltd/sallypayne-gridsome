@@ -15,7 +15,7 @@
         href="https://www.facebook.com/sallypaynedesign/"
         class="sp-c-footer__social__item sp-c-footer__social__item--facebook"
       >
-        
+        <span class="sp-u-sronly">Facebook</span>
         <img
           svg-inline
           src="../../assets/icons/facebook.svg" 
@@ -26,6 +26,7 @@
         href="https://twitter.com/salpdesign"
         class="sp-c-footer__social__item sp-c-footer__social__item--twitter"
       >
+        <span class="sp-u-sronly">Twitter</span>
         <img
           svg-inline
           src="../../assets/icons/twitter.svg" 
@@ -36,6 +37,7 @@
         href="https://www.instagram.com/sallypayne_design/"
         class="sp-c-footer__social__item sp-c-footer__social__item--instagram"
       >
+        <span class="sp-u-sronly">Instagram</span>
         <img
           svg-inline
           src="../../assets/icons/instagram.svg" 
@@ -46,6 +48,7 @@
         href="https://www.pinterest.co.uk/salhoulker/"
         class="sp-c-footer__social__item sp-c-footer__social__item--pinterest"
       >
+        <span class="sp-u-sronly">Pinterest</span>
         <img
           svg-inline
           src="../../assets/icons/pinterest.svg" 

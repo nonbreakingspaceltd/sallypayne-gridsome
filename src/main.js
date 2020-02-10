@@ -33,4 +33,16 @@ export default function(Vue, { router, head, isClient }) {
       }(document)
     `.replace(/\s/g, '')
   });
+
+  head.style.push({
+    innerHTML: `
+      @font-face {
+        font-family: 'SketchySallySans';
+        src: url('/fonts/sketchysallysans-regular-webfont.woff2') format('woff2'),
+          url('/fonts/sketchysallysans-regular-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+    `
+  })
 }
