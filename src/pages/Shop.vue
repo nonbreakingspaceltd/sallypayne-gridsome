@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="sp-l-page sp-l-page--work">
+    <div class="sp-l-page sp-l-page--shop">
       <div class="sp-l-page__inner">
         <h1 class="sp-o-pagetitle sp-u-sronly">
           Shop

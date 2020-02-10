@@ -34,7 +34,7 @@
   }
 
   &__content {
-    padding: 16px;
+    padding: 24px 16px 16px;
   }
 
   &--journal a:hover &__title,

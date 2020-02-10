@@ -6,7 +6,7 @@
           Work
         </h1>
         <Masonry v-if="$page.allWordPressWork.edges" :items="$page.allWordPressWork.edges" card-modifier="work" />
-        <nav class="sp-c-pagination">
+        <nav class="sp-c-pagination" v-if="$page.allWordPressWork.pageInfo.totalPages > 1">
           <Pager :info="$page.allWordPressWork.pageInfo" />
         </nav>
       </div>

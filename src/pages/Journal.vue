@@ -6,7 +6,7 @@
           Journal
         </h1>
         <Masonry v-if="$page.allWordPressPost.edges" :items="$page.allWordPressPost.edges" card-modifier="journal" />
-        <nav class="sp-c-pagination">
+        <nav class="sp-c-pagination" v-if="$page.allWordPressPost.pageInfo.totalPages > 1">
           <Pager :info="$page.allWordPressPost.pageInfo" />
         </nav>
       </div>
