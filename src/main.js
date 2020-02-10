@@ -47,6 +47,12 @@ export default function(Vue, { router, head, isClient }) {
   });
 
   head.link.push({
+    rel: `preload`,
+    as: `font`,
+    href: `/fonts/sketchysallysans-regular-webfont.woff2`,
+  });
+
+  head.link.push({
     rel: `preconnect`,
     href: `https://sallypayne-cms.spacedawwwg.com`,
   });
