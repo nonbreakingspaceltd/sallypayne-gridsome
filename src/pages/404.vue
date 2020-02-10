@@ -5,6 +5,9 @@
         <h1 class="sp-o-pagetitle">
           Oh dear. Sorry, but this page does not exist!
         </h1>
+        <div class="sp-o-404-image">
+          <g-image src="~/assets/images/lost-mouse.jpg" alt="Lost mouse" />
+        </div>
       </div>
     </div>
   </Layout>
@@ -17,3 +20,15 @@
     }
   };
 </script>
+
+<style lang="postcss">
+  .sp-o-404-image {
+    max-width: 500px;
+  }
+
+  .sp-o-404-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

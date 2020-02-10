@@ -23,6 +23,7 @@ query Work ($page: Int) {
     }
     edges {
       node {
+        title
         path
         featuredMedia {
           sourceUrl
