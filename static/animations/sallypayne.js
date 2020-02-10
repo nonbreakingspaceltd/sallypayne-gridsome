@@ -4,14 +4,6 @@ var createjs, AdobeAn;
         e = {},
         n = {};
 
-    function testWepP() {
-      var webP = new Image();
-      webP.src = 'data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wA' + 'iMwAgSSNtse/cXjxyCCmrYNWPwmHRH9jwMA';
-      webP.onload = webP.onerror = function () {
-        return webP.height === 2;
-      };
-    };
-
     function s() {
         var t = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop));
         return t.gotoAndStop(this.currentFrame), t.paused = this.paused, t.framerate = this.framerate, t
@@ -1755,10 +1747,10 @@ var createjs, AdobeAn;
         color: "#FFFFFF",
         opacity: 1,
         manifest: [{
-            src: testWepP() ? "images/sallypayne_atlas_.webp" : "images/sallypayne_atlas_.png",
+            src: "images/sallypayne_atlas_.png",
             id: "sallypayne_atlas_"
         }, {
-            src: testWepP() ? "images/sallypayne_atlas_2.webp" : "images/sallypayne_atlas_2.png",
+            src: "images/sallypayne_atlas_2.png",
             id: "sallypayne_atlas_2"
         }],
         preloads: []
