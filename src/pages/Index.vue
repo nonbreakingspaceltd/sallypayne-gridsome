@@ -9,20 +9,21 @@
           <div class="sp-c-homecanvas__loading" v-show="loading">
             Loading&hellip;
           </div>
-            <div class="sp-c-homecanvas__inner">
-              <div class="sp-c-homecanvas__lqip">
-                <transition name="fade">
-                  <iframe
-                    ref="animation"
-                    @load="load()"
-                    class="sp-c-homecanvas__iframe"
-                    src="/animations/home.html"
-                    scrolling="no"
-                    v-show="loaded"
-                  ></iframe>
-                </transition>
-              </div>
-            </div>
+          <div class="sp-c-homecanvas__inner">
+            <transition name="fade">
+              <div class="sp-c-homecanvas__lqip" aria-hidden="true" v-show="!loaded"></div>
+            </transition>
+            <transition name="fade">
+              <iframe
+                ref="animation"
+                @load="load()"
+                class="sp-c-homecanvas__iframe"
+                src="/animations/home.html"
+                scrolling="no"
+                v-show="loaded"
+              ></iframe>
+            </transition>
+          </div>
         </div>
       </div>
     </div>

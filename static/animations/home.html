@@ -23,23 +23,6 @@
         bottom: 0;
       }
     </style>
-  </head>
-  <body onload="init();" style="margin:0px;">
-    <div
-      id="animation_container"
-      style="background-color:rgba(255, 255, 255, 1.00); width:1024px; height:525px"
-    >
-      <canvas
-        id="canvas"
-        width="1024"
-        height="525"
-        style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"
-      ></canvas>
-      <div
-        id="dom_overlay_container"
-        style="pointer-events:none; overflow:hidden; width:1024px; height:525px; position: absolute; left: 0px; top: 0px; display: block;"
-      ></div>
-    </div>
     <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
     <script src="./sallypayne.js"></script>
     <script>
@@ -103,5 +86,22 @@
         fnStartAnimation();
       }
     </script>
+  </head>
+  <body onload="init();" style="margin:0px;">
+    <div
+      id="animation_container"
+      style="background: transparent; width:1024px; height:525px"
+    >
+      <canvas
+        id="canvas"
+        width="1024"
+        height="525"
+        style="position: absolute; display: block; background: transparent;"
+      ></canvas>
+      <div
+        id="dom_overlay_container"
+        style="pointer-events:none; overflow:hidden; width:1024px; height:525px; position: absolute; left: 0px; top: 0px; display: block;"
+      ></div>
+    </div>
   </body>
 </html>
