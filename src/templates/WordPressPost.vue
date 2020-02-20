@@ -3,7 +3,11 @@
     <div class="sp-l-page">
       <div class="sp-l-page__inner">
         <nav class="sp-o-backlink">
-          <g-link class="sp-o-backlink__item" :to="`/journal`" title="Back to Journal">
+          <g-link
+            class="sp-o-backlink__item"
+            :to="`/journal`"
+            title="Back to Journal"
+          >
             <svg
               class="sp-c-work__nav__item__svg"
               viewBox="0 0 38 22"
@@ -27,13 +31,10 @@
         </nav>
         <article class="sp-c-post">
           <header class="sp-c-post__header">
-            <h1
-              class="sp-c-post__title"
-              v-html="title"
-            ></h1>
+            <h1 class="sp-c-post__title" v-html="title"></h1>
             <p class="sp-c-post__posted">
               {{
-                this.$page.wordPressPost.dateGmt | moment('dddd, MMMM Do YYYY')
+                this.$page.wordPressPost.dateGmt | date('dddd, MMMM Do YYYY')
               }}
             </p>
           </header>
@@ -59,10 +60,13 @@ query WordPressPost ($id: ID!) {
 </page-query>
 
 <script>
-  import moment from 'moment';
   import '@gouch/to-title-case';
+  import { dateFilter } from 'vue-date-fns';
 
   export default {
+    filters: {
+      date: dateFilter
+    },
     metaInfo() {
       return {
         title: this.title

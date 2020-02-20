@@ -27,7 +27,6 @@ export default {
   },
   watch: {
     items() {
-      console.log('items change')
       const vm = this;
       vm.$nextTick(() => {
         vm.resizeAllMasonryItems();
@@ -69,14 +68,14 @@ export default {
   },
   mounted() {
     const vm = this;
-    vm.masonryEvents.forEach(event => {
-      window.addEventListener(event, vm.resizeAllMasonryItems);
-    });
     vm.waitForImages();
     vm.resizeAllMasonryItems();
     setTimeout(() => {
       vm.resizeAllMasonryItems();
-    }, 100);
+    }, 10);
+    vm.masonryEvents.forEach(event => {
+      window.addEventListener(event, vm.resizeAllMasonryItems);
+    });
   },
   beforeDestroy() {
     const vm = this;
