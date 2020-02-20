@@ -12,7 +12,7 @@
     "decode-entities": "^1.0.7",
     "dotenv": "^8.2.0",
     "gridsome": "^0.7.0",
-    "gridsome-source-etsy": "spacedawwwg/gridsome-source-etsy#lqip",
+    "gridsome-source-etsy": "^0.2.0",
     "gridsome-source-wordpress": "^0.4.13",
     "imagesloaded": "^4.1.4",
     "jimp": "^0.9.3",
