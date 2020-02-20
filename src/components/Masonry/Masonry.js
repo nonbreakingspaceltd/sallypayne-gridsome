@@ -1,5 +1,4 @@
 import Card from '~/components/Card';
-import imagesLoaded from 'imagesloaded';
 
 export default {
   components: {
@@ -35,47 +34,38 @@ export default {
   },
   methods: {
     resizeMasonryItem(item) {
-      var grid = this.$el,
-        rowGap = parseInt(
-          window.getComputedStyle(grid).getPropertyValue('grid-row-gap')
-        ),
-        rowHeight = parseInt(
-          window.getComputedStyle(grid).getPropertyValue('grid-auto-rows')
-        );
-      var rowSpan = Math.ceil(
+      const rowHeight = parseInt(
+        window.getComputedStyle(this.$el).getPropertyValue('grid-auto-rows')
+      );
+      const rowGap = parseInt(
+        window.getComputedStyle(this.$el).getPropertyValue('grid-row-gap')
+      );
+      const rowSpan = Math.ceil(
         (item
           .querySelector(`.${this.classNames.content}`)
           .getBoundingClientRect().height +
           rowGap) /
           (rowHeight + rowGap)
       );
-      item.style.gridRowEnd = 'span ' + rowSpan;
+      item.style.gridRowEnd = `span ${rowSpan}`;
     },
     resizeAllMasonryItems() {
       var allItems = this.$el.querySelectorAll(`.${this.classNames.item}`);
       allItems.forEach(item => {
         this.resizeMasonryItem(item);
       });
-    },
-    waitForImages() {
-      var allItems = this.$el.querySelectorAll(`.${this.classNames.item}`);
-      allItems.forEach(item => {
-        imagesLoaded(item, instance => {
-          this.resizeMasonryItem(instance.elements[0]);
-        });
-      });
     }
   },
-  mounted() {
+  beforeMount() {
     const vm = this;
-    vm.waitForImages();
-    vm.resizeAllMasonryItems();
-    setTimeout(() => {
-      vm.resizeAllMasonryItems();
-    }, 10);
     vm.masonryEvents.forEach(event => {
       window.addEventListener(event, vm.resizeAllMasonryItems);
     });
+  },
+  mounted() {
+    this.$el.classList.add('is-active');
+    this.resizeAllMasonryItems();
+    window.dispatchEvent(new Event('resize'));
   },
   beforeDestroy() {
     const vm = this;

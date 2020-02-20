@@ -6,15 +6,9 @@
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
 
-  .js & {
+  &.is-active {
     @media (--mq-s) {
       grid-auto-rows: 0;
-    }
-  }
-
-  &__item {
-    .js & {
-      /* background-color: var(--color-white); */
     }
   }
 }
