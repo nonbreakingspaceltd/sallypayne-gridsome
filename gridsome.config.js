@@ -73,7 +73,8 @@ module.exports = {
       use: 'gridsome-source-etsy',
       options: {
         shopId: process.env.ETSY_SHOPID,
-        token: process.env.ETSY_TOKEN
+        token: process.env.ETSY_TOKEN,
+        lqip: true
       }
     }
   ],
