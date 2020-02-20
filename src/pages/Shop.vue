@@ -27,10 +27,12 @@ query Shop {
         currencyCode
         state
         images {
+          hex_code
           url_fullxfull
           url_570xN
           full_height
           full_width
+          lqip
         }
         path
         description

@@ -12,9 +12,10 @@
     "decode-entities": "^1.0.7",
     "dotenv": "^8.2.0",
     "gridsome": "^0.7.0",
-    "gridsome-source-etsy": "^0.1.0",
+    "gridsome-source-etsy": "spacedawwwg/gridsome-source-etsy#lqip",
     "gridsome-source-wordpress": "^0.4.13",
     "imagesloaded": "^4.1.4",
+    "jimp": "^0.9.3",
     "lozad": "^1.14.0",
     "medium-zoom": "^1.0.5",
     "moment": "^2.24.0",
@@ -24,6 +25,7 @@
     "v-scroll-lock": "^1.1.0",
     "vue-masonry-css": "^1.0.3",
     "vue-moment": "^4.1.0",
+    "webpack-bundle-analyzer": "^3.6.0",
     "what-input": "^5.2.6"
   },
   "devDependencies": {

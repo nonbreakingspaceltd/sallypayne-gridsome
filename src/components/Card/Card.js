@@ -1,10 +1,6 @@
-import LazyImage from '../LazyImage';
 import '@gouch/to-title-case';
 
 export default {
-  components: {
-    LazyImage
-  },
   props: {
     content: {
       type: Object,
@@ -19,6 +15,10 @@ export default {
       default: true
     }
   },
+  data: () => ({
+    blankImg:
+      'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
+  }),
   computed: {
     title() {
       return this.content.title.toTitleCase();
@@ -29,6 +29,11 @@ export default {
         classes += ` sp-c-card--${this.modifier}`;
       }
       return classes;
+    },
+    mediaPadding() {
+      return `padding-top: ${(this.featuredImage.height /
+        this.featuredImage.width) *
+        100}%;`;
     },
     imageSrc() {
       let src = null;
@@ -51,13 +56,23 @@ export default {
         ? this.content.featuredMedia.alt
         : this.content.title;
     },
+    lqip() {
+      let image = this.blankImg;
+      if (this.content.lqip) {
+        image = this.content.lqip;
+      } else if (this.content.images && this.content.images[0].lqip) {
+        image = this.content.images[1].lqip || this.content.images[0].lqip;
+      }
+      return image;
+    },
     featuredImage() {
       let metadata = {
         width: 1,
         height: 1
-      }
+      };
+      let image;
       if (this.content.featuredMedia) {
-        let image;
+        image;
         if (this.content.featuredMedia.mediaDetails.sizes.squareLarge) {
           image = this.content.featuredMedia.mediaDetails.sizes.squareLarge;
         } else if (this.content.featuredMedia.mediaDetails.sizes.mediumLarge) {
@@ -68,19 +83,22 @@ export default {
           height: image.height
         };
       } else if (this.content.images) {
-        const image = this.content.images[1] || this.content.images[0];
+        image = this.content.images[1] || this.content.images[0];
         metadata = {
           width: image.full_width,
           height: image.full_height
         };
-        console.log(image);
       }
-      return {
+      const imageObj = {
         src: this.imageSrc,
         width: metadata.width,
         height: metadata.height,
-        alt: this.imageAlt
+        alt: this.imageAlt,
+        dataUri: this.lqip,
+        size: { width: '100%' },
+        srcset: [this.imageSrc]
       };
+      return imageObj;
     }
   }
 };

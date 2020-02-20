@@ -36,6 +36,7 @@ query Journal ($page: Int) {
         date
         dateGmt
         excerpt
+        lqip
         featuredMedia {
           sourceUrl
           altText
@@ -45,6 +46,9 @@ query Journal ($page: Int) {
                 sourceUrl
                 height
                 width
+              }
+              lqipThumbnail {
+                sourceUrl
               }
             }
           }

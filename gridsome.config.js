@@ -1,5 +1,7 @@
 require('dotenv').config();
 const path = require('path');
+// const BundleAnalyzerPlugin = require('yar')
+//   .BundleAnalyzerPlugin;
 
 const addStyleResource = rule => {
   rule
@@ -71,7 +73,7 @@ module.exports = {
       use: 'gridsome-source-etsy',
       options: {
         shopId: process.env.ETSY_SHOPID,
-        token: process.env.ETSY_TOKEN,
+        token: process.env.ETSY_TOKEN
       }
     }
   ],
@@ -109,5 +111,9 @@ module.exports = {
           tabindex: false
         }
       });
+    
+    // config
+    //   .plugin('BundleAnalyzerPlugin')
+    //   .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }]);
   }
 };

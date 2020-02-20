@@ -14,7 +14,7 @@ export default function(Vue, { router, head, isClient }) {
   head.htmlAttrs = {
     lang: 'en',
     dir: 'ltr',
-    class: process.isClient ? 'js' : 'no-js',
+    class: process.isClient ? 'js' : 'no-js'
   };
 
   head.script.unshift({
@@ -42,6 +42,7 @@ export default function(Vue, { router, head, isClient }) {
           url('/fonts/sketchysallysans-regular-webfont.woff') format('woff');
         font-weight: normal;
         font-style: normal;
+        font-display: swap;
       }
     `
   });
@@ -49,11 +50,11 @@ export default function(Vue, { router, head, isClient }) {
   head.link.push({
     rel: `preload`,
     as: `font`,
-    href: `/fonts/sketchysallysans-regular-webfont.woff2`,
+    href: `/fonts/sketchysallysans-regular-webfont.woff2`
   });
 
   head.link.push({
     rel: `preconnect`,
-    href: `https://sallypayne-cms.spacedawwwg.com`,
+    href: `https://sallypayne-cms.spacedawwwg.com`
   });
 }

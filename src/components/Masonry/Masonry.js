@@ -69,12 +69,14 @@ export default {
   },
   mounted() {
     const vm = this;
-    this.masonryEvents.forEach(event => {
+    vm.masonryEvents.forEach(event => {
       window.addEventListener(event, vm.resizeAllMasonryItems);
     });
+    vm.waitForImages();
+    vm.resizeAllMasonryItems();
     setTimeout(() => {
       vm.resizeAllMasonryItems();
-    }, 10);
+    }, 100);
   },
   beforeDestroy() {
     const vm = this;

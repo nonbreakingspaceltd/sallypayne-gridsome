@@ -32,6 +32,7 @@ query Work ($page: Int) {
       node {
         title
         path
+        lqip
         featuredMedia {
           sourceUrl
           altText
@@ -41,6 +42,9 @@ query Work ($page: Int) {
                 sourceUrl
                 height
                 width
+              }
+              lqipThumbnail {
+                sourceUrl
               }
             }
           }
