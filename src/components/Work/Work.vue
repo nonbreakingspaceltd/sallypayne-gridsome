@@ -12,8 +12,7 @@
       <figure class="sp-c-work__media sp-u-sronly">
         <g-image
           class="sp-c-work__media__image"
-          :src="content.featuredImageUrl"
-          :alt="content.title"
+          :src="featuredImage"
           ref="image"
         />
       </figure>
@@ -25,8 +24,7 @@
     >
       <g-image
         class="sp-c-work__media__image"
-        :src="content.featuredImageUrl"
-        :alt="content.title"
+        :src="featuredImage"
         ref="image"
       />
     </figure>

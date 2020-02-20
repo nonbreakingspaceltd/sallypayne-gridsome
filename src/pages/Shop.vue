@@ -10,14 +10,24 @@
           :items="$page.allEtsyProduct.edges"
           :card-props="{ modifier: 'product' }"
         />
+        <nav
+          class="sp-c-pagination"
+          v-if="$page.allEtsyProduct.pageInfo.totalPages > 1"
+        >
+          <Pager :info="$page.allEtsyProduct.pageInfo" />
+        </nav>
       </div>
     </div>
   </Layout>
 </template>
 
 <page-query>
-query Shop {
-  allEtsyProduct(filter:{ state: { eq:"active" } } ) {
+query Shop ($page: Int) {
+  allEtsyProduct (filter:{ state: { eq:"active" } }, page: $page, perPage: 16) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
        node {
         id

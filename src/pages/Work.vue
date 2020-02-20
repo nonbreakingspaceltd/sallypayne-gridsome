@@ -23,7 +23,7 @@
 
 <page-query>
 query Work ($page: Int) {
-  allWordPressWork (page: $page, perPage: 24) @paginate {
+  allWordPressWork (page: $page, perPage: 16) @paginate {
     pageInfo {
       totalPages
       currentPage
@@ -42,9 +42,6 @@ query Work ($page: Int) {
                 sourceUrl
                 height
                 width
-              }
-              lqipThumbnail {
-                sourceUrl
               }
             }
           }

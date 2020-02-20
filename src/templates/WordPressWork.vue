@@ -18,15 +18,16 @@ query WordPressWork ($id: ID!) {
       sourceUrl
       altText
       mediaDetails {
-        width
-        height
         sizes {
-          mediumLarge {
+          full {
             sourceUrl
+            width
+            height
           }
         }
       }
     }
+    lqip
     repeatFeaturedImage
     previous {
       slug

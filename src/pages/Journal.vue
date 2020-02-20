@@ -23,7 +23,7 @@
 
 <page-query>
 query Journal ($page: Int) {
-  allWordPressPost (page: $page, perPage: 24) @paginate {
+  allWordPressPost (page: $page, perPage: 16) @paginate {
     pageInfo {
       totalPages
       currentPage

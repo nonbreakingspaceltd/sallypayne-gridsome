@@ -28,11 +28,7 @@
         <article class="sp-c-product">
           <div class="sp-c-product__inner">
             <figure class="sp-c-product__media" v-if="$page.etsyProduct.images">
-              <img
-                class="sp-c-product__media__image"
-                :src="imgSrc"
-                :alt="$page.etsyProduct.title"
-              />
+              <g-image :src="productImage" class="sp-c-product__media__image" />
             </figure>
             <div class="sp-c-product__details">
               <div class="sp-c-product__details__inner">
@@ -89,10 +85,8 @@ query EtsyProducts ($id: ID!) {
     currencyCode
     state
     images {
-      url_fullxfull
       url_570xN
-      full_height
-      full_width
+      lqip
     }
     slug
     description
@@ -110,9 +104,18 @@ query EtsyProducts ($id: ID!) {
       };
     },
     computed: {
-      imgSrc() {
+      productImage() {
         const images = this.$page.etsyProduct.images;
-        return images[1] ? images[1].url_570xN : images[0].url_570xN;
+        const image = images[1] ? images[1] : images[0];
+        return {
+          src: image.url_570xN,
+          width: image.width,
+          height: image.height,
+          alt: this.$page.etsyProduct.title,
+          dataUri: image.lqip,
+          size: { width: '100%' },
+          srcset: [image.url_570xN]
+        };
       }
     }
   };
