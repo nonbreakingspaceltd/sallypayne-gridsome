@@ -1,4 +1,5 @@
 import Card from '~/components/Card';
+import classNames from 'classnames';
 
 export default {
   components: {
@@ -12,6 +13,10 @@ export default {
     cardProps: {
       type: Object,
       default: {}
+    },
+    calculateRows: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -21,7 +26,8 @@ export default {
         container: 'sp-c-masonry',
         item: 'sp-c-masonry__item',
         content: 'sp-c-masonry__item__content'
-      }
+      },
+      isActive: false
     };
   },
   watch: {
@@ -30,6 +36,15 @@ export default {
       vm.$nextTick(() => {
         vm.resizeAllMasonryItems();
       });
+    }
+  },
+  computed: {
+    containerClassNames() {
+      return classNames(
+        this.classNames.container,
+        { 'is-active': this.isActive },
+        { 'is-calculated': this.calculateRows }
+      );
     }
   },
   methods: {
@@ -50,6 +65,9 @@ export default {
       item.style.gridRowEnd = `span ${rowSpan}`;
     },
     resizeAllMasonryItems() {
+      if (!this.calculateRows) {
+        return;
+      }
       var allItems = this.$el.querySelectorAll(`.${this.classNames.item}`);
       allItems.forEach(item => {
         this.resizeMasonryItem(item);
@@ -63,7 +81,7 @@ export default {
     });
   },
   mounted() {
-    this.$el.classList.add('is-active');
+    this.isActive = true;
     this.resizeAllMasonryItems();
     window.dispatchEvent(new Event('resize'));
   },

@@ -13,16 +13,19 @@ query WordPressWork ($id: ID!) {
   wordPressWork(id: $id) {
     title,
     backgroundColor,
-    featuredImageUrl
     featuredMedia {
       sourceUrl
       altText
       mediaDetails {
         sizes {
+          squareLarge {
+            sourceUrl
+          }
+          large {
+            sourceUrl
+          }
           full {
             sourceUrl
-            width
-            height
           }
         }
       }

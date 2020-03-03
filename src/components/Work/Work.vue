@@ -6,8 +6,8 @@
     <h1 class="sp-c-work__title sp-u-sronly" v-html="content.title"></h1>
     <div
       class="sp-c-work__pattern"
-      :style="`background-image:url(${content.featuredImageUrl})`"
-      v-if="repeatImage && content.featuredImageUrl"
+      :style="`background-image:url(${this.content.featuredMedia.mediaDetails.sizes.large.sourceUrl})`"
+      v-if="repeatImage && this.content.featuredMedia.mediaDetails.sizes.large.sourceUrl"
     >
       <figure class="sp-c-work__media sp-u-sronly">
         <g-image
@@ -19,13 +19,14 @@
     </div>
     <figure
       class="sp-c-work__media"
-      v-if="!repeatImage && content.featuredImageUrl"
+      v-if="!repeatImage && this.content.featuredMedia.mediaDetails.sizes.squareLarge.sourceUrl"
       ref="media"
     >
       <g-image
         class="sp-c-work__media__image"
         :src="featuredImage"
         ref="image"
+        :data-zoom-src="this.content.featuredMedia.mediaDetails.sizes.squareLarge.sourceUrl"
       />
     </figure>
     <nav class="sp-c-work__nav">

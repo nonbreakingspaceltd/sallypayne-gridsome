@@ -26,7 +26,7 @@ export default {
         : this.content.title;
     },
     featuredImage() {
-      const image = this.content.featuredMedia.mediaDetails.sizes.full;
+      const image = this.content.featuredMedia.mediaDetails.sizes.squareLarge;
       const obj = {
         src: image.sourceUrl,
         width: image.width,

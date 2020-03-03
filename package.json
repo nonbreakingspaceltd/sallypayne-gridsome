@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@gridsome/source-wordpress": "^0.5.2",
+    "classnames": "^2.2.6",
     "decode-entities": "^1.0.7",
     "dotenv": "^8.2.0",
     "gridsome": "^0.7.0",

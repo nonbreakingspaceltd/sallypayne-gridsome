@@ -9,6 +9,7 @@
           v-if="$page.allWordPressWork.edges"
           :items="$page.allWordPressWork.edges"
           :card-props="{ modifier: 'work', renderTextContent: false }"
+          :calculate-rows="false"
         />
         <nav
           class="sp-c-pagination"
@@ -23,7 +24,7 @@
 
 <page-query>
 query Work ($page: Int) {
-  allWordPressWork (page: $page, perPage: 16) @paginate {
+  allWordPressWork (page: $page, perPage: 12) @paginate {
     pageInfo {
       totalPages
       currentPage

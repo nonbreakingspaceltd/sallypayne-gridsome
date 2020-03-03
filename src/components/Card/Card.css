@@ -1,12 +1,7 @@
 .sp-c-card {
   display: block;
   width: 100%;
-  /* margin-bottom: 16px; */
   background-color: #FFFFFF;
-
-  @media (--mq-m) {
-    /* margin-bottom: 32px; */
-  }
 
   &__link {
     display: block;

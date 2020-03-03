@@ -2,13 +2,21 @@
   display: grid;
   grid-gap: 16px;
 
+  @media (--mq-m) {
+    /* grid-gap: 32px; */
+  }
+
   @media (--mq-s) {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
 
-  &.is-active {
+  &.is-calculated {
     @media (--mq-s) {
       grid-auto-rows: 0;
     }
+  }
+
+  &.is-calculated &__item {
+    background-color: #ffffff;
   }
 }

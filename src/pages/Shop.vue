@@ -23,7 +23,7 @@
 
 <page-query>
 query Shop ($page: Int) {
-  allEtsyProduct (filter:{ state: { eq:"active" } }, page: $page, perPage: 16) @paginate {
+  allEtsyProduct (filter:{ state: { eq:"active" } }, page: $page, perPage: 12) @paginate {
     pageInfo {
       totalPages
       currentPage
